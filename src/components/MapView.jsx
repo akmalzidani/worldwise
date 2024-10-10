@@ -12,23 +12,38 @@ import { useEffect, useState } from "react";
 import { useCities } from "../contexts/CitiesContext";
 import { formatEmoji } from "../utils/formatter";
 import { map } from "leaflet";
+import { useGeolocation } from "../hooks/useGeolocation";
+import Button from "./Button";
 
 export default function MapView() {
-  const navigate = useNavigate();
   const { cities } = useCities();
-
   const [mapPosition, setMapPosition] = useState([51.505, -0.09]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const {
+    isLoading: isLoadingPosition,
+    position: geocolocationPosition,
+    getPosition,
+  } = useGeolocation();
 
   const mapLat = searchParams.get("lat");
   const mapLng = searchParams.get("lng");
 
   useEffect(() => {
-    mapLat && mapLng && setMapPosition([mapLat, mapLng]);
+    if (mapLat && mapLng) setMapPosition([mapLat, mapLng]);
   }, [mapLat, mapLng]);
+
+  useEffect(() => {
+    if (geocolocationPosition)
+      setMapPosition([geocolocationPosition.lat, geocolocationPosition.lng]);
+  }, [geocolocationPosition]);
 
   return (
     <div className={styles.mapContainer}>
+      {!geocolocationPosition && (
+        <Button type="position" onClick={getPosition}>
+          {isLoadingPosition ? "Loading..." : "Use your position"}
+        </Button>
+      )}
       <MapContainer
         center={mapPosition}
         // center={[mapLat, mapLng]}
