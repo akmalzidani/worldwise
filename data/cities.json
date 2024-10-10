@@ -59,42 +59,6 @@
         "lat": "-7.423070318382198",
         "lng": "112.58308410644533"
       }
-    },
-    {
-      "id": "a38f",
-      "cityName": "Sidoarjo",
-      "country": "Indonesia",
-      "date": "2024-10-10T17:06:33.119Z",
-      "notes": "",
-      "emoji": "🇮🇩",
-      "position": {
-        "lat": "-7.453028495460379",
-        "lng": "112.7135467529297"
-      }
-    },
-    {
-      "id": "357e",
-      "cityName": "Gempol",
-      "country": "Indonesia",
-      "date": "2024-10-10T17:08:01.529Z",
-      "notes": "Mbecak",
-      "emoji": "🇮🇩",
-      "position": {
-        "lat": "-7.582369721001928",
-        "lng": "112.68951416015626"
-      }
-    },
-    {
-      "id": "88db",
-      "cityName": "Bangil",
-      "country": "Indonesia",
-      "date": "2024-10-10T17:08:29.643Z",
-      "notes": "",
-      "emoji": "🇮🇩",
-      "position": {
-        "lat": "-7.6000660387778485",
-        "lng": "112.78564453125001"
-      }
     }
   ]
 }
