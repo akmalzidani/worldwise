@@ -25,7 +25,7 @@ function City() {
         <h3>
           {emoji && <span>{formatEmoji(emoji)}</span>}
 
-          {/* {emoji ? <span>{formatEmoji(emoji)}</span> : <Spinner />} */}
+          {/* {emoji ? <span>{(emoji)}</span> : <Spinner />} */}
           {cityName}
         </h3>
       </div>

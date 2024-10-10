@@ -8,28 +8,24 @@ const formatDate = (date) =>
 
 // flagemojiToPNG
 const formatEmoji = (flag) => {
-  let countryCode = Array.from(flag)
-    .map((char) => String.fromCodePoint(char.codePointAt(0) - 127397))
-    .join("")
-    .toLowerCase();
-
+  var countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
+    .map((char) => String.fromCharCode(char - 127397).toLowerCase())
+    .join("");
   return (
     <img
       src={`https://flagcdn.com/24x18/${countryCode}.png`}
-      alt={`flag of ${countryCode}`}
+      alt="flag"
+      code={flag}
     />
   );
 };
 
-const convertEmojiFlag = (flag) => {
-  const countryCode = flag.toLowerCase();
-
-  return (
-    <img
-      src={`https://flagcdn.com/24x18/${countryCode}.png`}
-      alt={`flag of ${countryCode}`}
-    />
-  );
+const convertCountryCodeToEmoji = (countryCode) => {
+  return countryCode
+    .toUpperCase() // Pastikan kode negara dalam huruf besar
+    .split("") // Pisahkan setiap karakter dari kode negara
+    .map((char) => String.fromCodePoint(char.charCodeAt(0) + 127397)) // Ubah menjadi emoji bendera
+    .join(""); // Gabungkan kembali
 };
 
-export { formatDate, formatEmoji, convertEmojiFlag };
+export { formatDate, formatEmoji, convertCountryCodeToEmoji };

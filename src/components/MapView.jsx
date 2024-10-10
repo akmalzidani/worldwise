@@ -10,10 +10,10 @@ import {
 } from "react-leaflet";
 import { useEffect, useState } from "react";
 import { useCities } from "../contexts/CitiesContext";
-import { formatEmoji } from "../utils/formatter";
 import { useGeolocation } from "../hooks/useGeolocation";
 import Button from "./Button";
 import { useUrlPosition } from "../hooks/useUrlPosition";
+import { formatEmoji } from "../utils/formatter";
 
 export default function MapView() {
   const { cities } = useCities();
@@ -59,7 +59,7 @@ export default function MapView() {
             key={city.id}
           >
             <Popup>
-              <span>{city.emoji && formatEmoji(city.emoji)}</span>
+              <span>{city.emoji ? formatEmoji(city.emoji) : ""}</span>
               <span>{city.cityName}</span>
             </Popup>
             <ChangeCenter position={mapPosition} />
