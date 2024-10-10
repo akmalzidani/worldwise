@@ -21,4 +21,15 @@ const formatEmoji = (flag) => {
   );
 };
 
-export { formatDate, formatEmoji };
+const convertEmojiFlag = (flag) => {
+  const countryCode = flag.toLowerCase();
+
+  return (
+    <img
+      src={`https://flagcdn.com/24x18/${countryCode}.png`}
+      alt={`flag of ${countryCode}`}
+    />
+  );
+};
+
+export { formatDate, formatEmoji, convertEmojiFlag };
